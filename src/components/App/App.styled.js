@@ -4,6 +4,8 @@ export const GlobalStyle = createGlobalStyle`
   :root{
       --border: 1px solid gray;
       --shadow: 4px 4px 8px gray;
+      --accentColor: lightblue;
+      --transition: all 0.3s cubic-bezier(0.6, 0, 0.4, 1);
   }
   
   .title {
@@ -22,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     transition: background-color 300ms ease-in-out;
 
     &:hover {
-      background-color: lightblue;
+      background-color: var(--accentColor);
     }
   }
 `;
