@@ -10,7 +10,7 @@ const validationSchema = object({
   password: string().required(),
 });
 
-export function LoginPage() {
+export default function LoginPage() {
   const dispatch = useDispatch()
     const navigate = useNavigate();
 

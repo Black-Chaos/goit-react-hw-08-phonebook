@@ -16,7 +16,7 @@ const validationSchema = object({
   password: string().required(),
 });
 
-export function RegisterPage() {
+export default function RegisterPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

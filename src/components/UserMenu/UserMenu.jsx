@@ -1,10 +1,8 @@
-import { Wrapper } from 'components/partials/wrapper.styled';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { logOut } from 'redux/auth/operation';
 import { selectUser } from 'redux/auth/selectors';
-import { NameTitle } from './userMenu.styled';
-import { useNavigate } from 'react-router-dom';
-import { BackButton } from 'components/BackButton/BackButton';
+import { MainTitle } from './userMenu.styled';
 
 export function UserMenu() {
   const dispatch = useDispatch();
@@ -18,12 +16,11 @@ export function UserMenu() {
   };
 
   return (
-    <Wrapper>
-      <BackButton/>
-      <NameTitle>Welcome, {name}</NameTitle>
+    <>
+      <MainTitle>Hello, {name}</MainTitle>
       <button className="btn" type="button" onClick={handleClick}>
         Logout
       </button>
-    </Wrapper>
+    </>
   );
 }

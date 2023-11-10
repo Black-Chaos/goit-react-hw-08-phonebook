@@ -7,7 +7,7 @@ import { addContact, fetchContacts } from 'redux/contacts/operation';
 import { useEffect } from 'react';
 import { Container } from 'components/App/App.styled';
 
-export function ContactsPage() {
+export default function ContactsPage() {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 

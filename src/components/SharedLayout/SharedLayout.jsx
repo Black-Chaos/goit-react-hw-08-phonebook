@@ -1,4 +1,6 @@
+import { Loader } from "components/Loader/Loader";
 import { Navigation } from "components/Navigation/Navigation";
+import { Wrapper } from "components/partials/wrapper.styled";
 import { Suspense } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
@@ -11,7 +13,13 @@ export function SharedLayout() {
       <>
         {isLoggedIn && <Navigation />}
         <main>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={
+              <Wrapper>
+                <Loader />
+              </Wrapper>
+            }
+          >
             <Outlet />
           </Suspense>
         </main>
