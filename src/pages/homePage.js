@@ -13,7 +13,7 @@ export default function HomePage() {
         {!isLoggedIn && <button
           className="btn"
           type="button"
-          onClick={() => navigate('/account/login')}
+          onClick={() => navigate('/login')}
         >
           Log in
         </button>}

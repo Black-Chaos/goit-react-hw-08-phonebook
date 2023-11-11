@@ -9,6 +9,9 @@ import {
   StyledField,
   StyledForm,
 } from './stylePages/form.styled';
+import { Wrapper } from 'components/partials/wrapper.styled';
+import { PageBg } from './stylePages/userPage.style';
+import { BackButton } from 'components/BackButton/BackButton';
 
 const validationSchema = object({
   name: string().required(),
@@ -27,48 +30,50 @@ export default function RegisterPage() {
       password: '',
     },
     validationSchema,
-    onSubmit: values => {
-      dispatch(signUp(values));
+    onSubmit: async values => {
+      await dispatch(signUp(values));
       navigate('/account', { replace: true });
     },
   });
 
   return (
-    <>
-      <StyledForm onSubmit={formik.handleSubmit}>
-        <StyledField
-          name="name"
-          placeholder="Name"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-        />
-        {formik.touched.name && formik.errors.name ? (
-          <ErrorField>{formik.errors.name}</ErrorField>
-        ) : null}
-        <StyledField
-          name="email"
-          placeholder="Email"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <ErrorField>{formik.errors.email}</ErrorField>
-        ) : null}
-        <StyledField
-          name="password"
-          placeholder="Password"
-          type="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-        {formik.touched.password && formik.errors.password ? (
-          <ErrorField>{formik.errors.password}</ErrorField>
-        ) : null}
-        <StyledButton>Sign in</StyledButton>
-      </StyledForm>
-    </>
-   
+    <PageBg>
+      <Wrapper>
+        <BackButton/>
+        <StyledForm onSubmit={formik.handleSubmit}>
+          <StyledField
+            name="name"
+            placeholder="Name"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+          />
+          {formik.touched.name && formik.errors.name ? (
+            <ErrorField>{formik.errors.name}</ErrorField>
+          ) : null}
+          <StyledField
+            name="email"
+            placeholder="Email"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <ErrorField>{formik.errors.email}</ErrorField>
+          ) : null}
+          <StyledField
+            name="password"
+            placeholder="Password"
+            type="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <ErrorField>{formik.errors.password}</ErrorField>
+          ) : null}
+          <StyledButton>Sign in</StyledButton>
+        </StyledForm>
+      </Wrapper>
+    </PageBg>
   );
 }
