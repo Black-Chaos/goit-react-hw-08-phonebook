@@ -3,7 +3,6 @@ import { PrivateRoute } from 'components/ProtectedRoute/PrivateRoute';
 import { PublicRoute } from 'components/ProtectedRoute/PublicRoute';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 import { Wrapper } from 'components/partials/wrapper.styled';
-// import { AuthPage, ContactsPage, HomePage, LoginPage, RegisterPage } from 'pages';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
