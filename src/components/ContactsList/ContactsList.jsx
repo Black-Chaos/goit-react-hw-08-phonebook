@@ -10,12 +10,12 @@ export function ContactsList() {
 
   return (
     <ListByContacts>
-      {contacts.map(({ id, name, number }) => (
+      {contacts.map(({ _id, name, number }) => (
         <ContactItem
-          key={id}
+          key={_id}
           name={name}
           number={number}
-          handleDelete={() => dispatch(deleteContact(id))}
+          handleDelete={() => dispatch(deleteContact(_id))}
         />
       ))}
     </ListByContacts>

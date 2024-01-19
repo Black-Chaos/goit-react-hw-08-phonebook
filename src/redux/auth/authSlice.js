@@ -1,11 +1,11 @@
 import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
-import { logIn, logOut, refreshUser, signUp } from './operation';
+import { logIn, logOut, refreshUser, signUp, updateAvatar } from './operation';
 
 const { createSlice, isAnyOf } = require('@reduxjs/toolkit');
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, avatar: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -24,10 +24,12 @@ export const authSlice = createSlice({
         state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+      })
+      .addCase(updateAvatar.fulfilled, (state, { payload }) => {
+        state.user.avatar = payload;
       })
       .addMatcher(
         isAnyOf(logIn.fulfilled, signUp.fulfilled),

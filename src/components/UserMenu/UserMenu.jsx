@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logOut } from 'redux/auth/operation';
 import { selectUser } from 'redux/auth/selectors';
 import { MainTitle } from './userMenu.styled';
@@ -18,6 +18,7 @@ export function UserMenu() {
   return (
     <>
       <MainTitle>Hello, {name}</MainTitle>
+      <Link to={'/profile'}>Profile</Link>
       <button className="btn" type="button" onClick={handleClick}>
         Logout
       </button>
